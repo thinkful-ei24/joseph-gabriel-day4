@@ -1,18 +1,19 @@
 // Add Event Listeners here:
 
-
 // When DOM is ready:
 $(() => {
   createAndPlaceRows(8);
 
   // Bind your event listeners here:
+
+  $('.grid').on('mouseover', 'div.row div.cell', function(event) {
+    $(this).addClass('active');
+  });
+
+  $('section button').click(function(event) {
+    createAndPlaceRows(8);
+  });
 });
-
-
-
-
-
-
 
 // ===============================
 // Code below is to automate grid creation
@@ -43,3 +44,6 @@ function createAndPlaceRows(n) {
   const cells = $('.cell');
   cells.css({ height: cells.width() });
 }
+// grid
+//// div row
+////// div cell
