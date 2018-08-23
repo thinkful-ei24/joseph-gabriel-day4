@@ -1,7 +1,7 @@
-const addToList = function(html){
+const addToList = function(html) {
   $('.shopping-list').append(html);
 };
-const listItemToHtml = function(listItem){
+const listItemToHtml = function(listItem) {
   return `
   <li>
     <span class="shopping-item">${listItem}</span>
@@ -15,21 +15,26 @@ const listItemToHtml = function(listItem){
     </div>
   </li> `;
 };
-function main(){
-  $('#js-shopping-list-form').submit(function(e){
+function main() {
+  $('#js-shopping-list-form').submit(function(e) {
     e.preventDefault();
     const inputObj = $('.js-shopping-list-entry');
     inputObj.val('');
     const currentListItem = listItemToHtml(inputObj.val());
     addToList(currentListItem);
   });
-  $('ul.shopping-list').on('click','.shopping-item-toggle', function(e){
-    $(this).parent().prev().toggleClass('shopping-item__checked');
+  $('ul.shopping-list').on('click', '.shopping-item-toggle', function(e) {
+    $(this)
+      .parent()
+      .prev()
+      .toggleClass('shopping-item__checked');
   });
-  $('ul.shopping-list').on('click','.shopping-item-delete', function(e){
-    $(this).parent().parent().remove();
+  $('ul.shopping-list').on('click', '.shopping-item-delete', function(e) {
+    $(this)
+      .parent()
+      .parent()
+      .remove();
   });
-
 }
 
 $(main);
